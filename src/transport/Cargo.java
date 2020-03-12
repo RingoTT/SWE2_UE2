@@ -11,4 +11,8 @@ public class Cargo {
         this.weight = weight;
         this.description = description;
     }
+    @Override
+    public String toString(){
+        return ""+this.type+ " "+ this.weight + " "+this.description;
+    }
 }
