@@ -17,7 +17,11 @@ public class Transporter {
     }
 
     double goTo(Location location) {
-        this.location.getDistance(location);
-        return 0;
+        return this.costPerKM * this.location.getDistance(location);
+    }
+    void load(Cargo cargo) throws OverloadedException {
+        if (cargo.weight > this.maxLoad){
+            throw new OverloadedException("Cargo too heavy");
+        }
     }
 }
