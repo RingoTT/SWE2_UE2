@@ -1,7 +1,15 @@
 package transport;
 
 public class ContainerTruck extends Transporter {
-    public ContainerTruck(int maxLoad, String name, double costPerKM, Location location, Cargo cargo) {
-        super(maxLoad, name, costPerKM, location, cargo);
+    public ContainerTruck(String name, int costPerKM, int maxLoad, Location location) {
+        super(name, costPerKM, maxLoad, location);
+    }
+
+    public void load(Cargo cargo) throws InvalidCargoException, OverloadedException {
+        if (cargo.type == CargoType.LIQUID) {
+            throw new InvalidCargoException("ContainerTruck can't transport liquid cargo");
+        } else {
+            super.load(cargo);
+        }
     }
 }
