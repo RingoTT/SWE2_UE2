@@ -1,3 +1,3 @@
 package transport;
 
-public enum CargoType {LIQUID,SOLID}
+public enum CargoType {LIQUID, SOLID}

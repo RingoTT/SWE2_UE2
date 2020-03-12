@@ -12,4 +12,15 @@ public class ContainerTruck extends Transporter {
             super.load(cargo);
         }
     }
+
+    @Override
+    public double goTo(Location location) throws UnreachableLocationException {
+        if (!super.location.reachableOverland(location)) {
+            throw new UnreachableLocationException("ContainerTruck can't swim");
+        } else {
+            double x = Math.round(this.costPerKM * this.location.getDistance(location) * 100) / 100.0;
+            this.location = location;
+            return x;
+        }
+    }
 }

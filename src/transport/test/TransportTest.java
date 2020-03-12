@@ -4,6 +4,7 @@ import static transport.Country.Austria;
 import static transport.Country.France;
 import static transport.Country.GreatBritain;
 import static transport.Country.USA;
+
 import inout.Out;
 
 import transport.*;
@@ -30,123 +31,129 @@ public class TransportTest {
 
         double cost = 0;
 
-		// plane
+        // plane
 
-		try {
-			cost += plane.goTo(paris);
-			Out.println("Plane flight to Paris ok: "+ plane.toString());
-			Out.println(plane.maxLoad);
+        try {
+            cost += plane.goTo(paris);
+            Out.println("Plane flight to Paris ok: " + plane.toString());
+            Out.println(plane.maxLoad);
 
-			plane.load(solid_15);
-			Out.println("Loaded solid_15 on plane ok: "+ plane.toString());
+            plane.load(solid_15);
+            Out.println("Loaded solid_15 on plane ok: " + plane.toString());
 
-			cost += plane.goTo(ny);
-			Out.println("Plane flight to NY ok: " + plane.toString());
+            cost += plane.goTo(ny);
+            Out.println("Plane flight to NY ok: " + plane.toString());
 
-			plane.unload();
-			Out.println("Plane unload ok: " + plane.toString());
-		} catch (TransportException e) {
-			Out.println("++ERROR++: Unexpected exception: "+ e.toString());
-		}
+            plane.unload();
+            Out.println("Plane unload ok: " + plane.toString());
+        } catch (TransportException e) {
+            Out.println("++ERROR++: Unexpected exception: " + e.toString());
+        }
 
-		Out.println("Cost for plane is: " + cost);
-		Out.println();
+        Out.println("Cost for plane is: " + cost);
+        Out.println();
 
-		try {
-			plane.load(liquid_15);
-			Out.println("++ERROR++: InvalidCargoException expected: "+ plane);
-		} catch (InvalidCargoException e) {
-			Out.println("Expected exception is: "+ e.toString());
-		} catch (TransportException e) {
-			Out.println("++ERROR++: Unexpected exception: "+ e.toString());
-		}
+        try {
+            plane.load(liquid_15);
+            Out.println("++ERROR++: InvalidCargoException expected: " + plane);
+        } catch (InvalidCargoException e) {
+            Out.println("Expected exception is: " + e.toString());
+        } catch (TransportException e) {
+            Out.println("++ERROR++: Unexpected exception: " + e.toString());
+        }
 
-		// Tank truck
+        // Tank truck
 
-		Out.println();
+        Out.println();
 
-		cost = 0;
-		try {
+        cost = 0;
+        try {
             Out.println(tankTruck);
-			cost += tankTruck.goTo(paris);
-			Out.println("Tank truck is going to paris: "+ tankTruck.toString());
+            cost += tankTruck.goTo(paris);
+            Out.println("Tank truck is going to paris: " + tankTruck.toString());
 
-			tankTruck.load(liquid_5);
-			Out.println("Tank truck loading liquid 5000 ok: "+ tankTruck.toString());
+            tankTruck.load(liquid_5);
+            Out.println("Tank truck loading liquid 5000 ok: " + tankTruck.toString());
 
-			cost += tankTruck.goTo(linz);
-			Out.println("Tank truck go to Linz ok: "+ tankTruck.toString());
+            cost += tankTruck.goTo(linz);
+            Out.println("Tank truck go to Linz ok: " + tankTruck.toString());
 
-			tankTruck.unload();
-			Out.println("Tank truck unloading ok: "+ tankTruck.toString());
+            tankTruck.unload();
+            Out.println("Tank truck unloading ok: " + tankTruck.toString());
 
-		} catch (TransportException e) {
-			Out.println("++ERROR++: Unexpected exception: "+ e.toString());
-		}
+        } catch (TransportException e) {
+            Out.println("++ERROR++: Unexpected exception: " + e.toString());
+        }
 
-		Out.println("Cost for tank truck is: " + cost);
-		Out.println();
+        Out.println("Cost for tank truck is: " + cost);
+        Out.println();
 
-		try {
-			tankTruck.load(solid_5);
-			Out.println("++ERROR++: InvalidCargoException expected: "+ tankTruck);
-		} catch (InvalidCargoException e) {
-			Out.println("Expected exception is: "+ e.toString());
-		} catch (TransportException e) {
-			Out.println("++ERROR++: Unexpected exception: "+ e.toString());
-		}
+        try {
+            tankTruck.load(solid_5);
+            Out.println("++ERROR++: InvalidCargoException expected: " + tankTruck);
+        } catch (InvalidCargoException e) {
+            Out.println("Expected exception is: " + e.toString());
+        } catch (TransportException e) {
+            Out.println("++ERROR++: Unexpected exception: " + e.toString());
+        }
 
-		try {
-			tankTruck.load(liquid_15);
-			Out.println("++ERROR++: OverloadedException expected: "+ tankTruck);
-		} catch (OverloadedException e) {
-			Out.println("Expected exception is: "+ e.toString());
-		} catch (TransportException e) {
-			Out.println("++ERROR++: Unexpected exception: "+ e.toString());
-		}
+        try {
+            tankTruck.load(liquid_15);
+            Out.println("++ERROR++: OverloadedException expected: " + tankTruck);
+        } catch (OverloadedException e) {
+            Out.println("Expected exception is: " + e.toString());
+        } catch (TransportException e) {
+            Out.println("++ERROR++: Unexpected exception: " + e.toString());
+        }
 
-		// Container truck
+        // Container truck
 
-		Out.println();
-		cost = 0;
-		try {
+        Out.println();
+        cost = 0;
+        try {
 
-			cost += containerTruck.goTo(paris);
-			Out.println("Container truck go to Paris ok: "+ containerTruck.toString());
+            cost += containerTruck.goTo(paris);
+            Out.println("Container truck go to Paris ok: " + containerTruck.toString());
 
-			containerTruck.load(solid_5);
-			Out.println("Container truck loading solid 5000 ok: "+ containerTruck.toString());
+            containerTruck.load(solid_5);
+            Out.println("Container truck loading solid 5000 ok: " + containerTruck.toString());
 
-			cost += containerTruck.goTo(linz);
-			Out.println("Container truck go to Linz ok: "+ containerTruck.toString());
+            cost += containerTruck.goTo(linz);
+            Out.println("Container truck go to Linz ok: " + containerTruck.toString());
 
-			containerTruck.unload();
-			Out.println("Container truck unloading ok: "+ containerTruck.toString());
+            containerTruck.unload();
+            Out.println("Container truck unloading ok: " + containerTruck.toString());
 
-		} catch (TransportException e) {
-			Out.println("++ERROR++: Unexpected exception: "+ e.toString());
-		}
+        } catch (TransportException e) {
+            Out.println("++ERROR++: Unexpected exception: " + e.toString());
+        }
 
-		Out.println("Cost for container truck is: " + cost);
-		Out.println();
+        Out.println("Cost for container truck is: " + cost);
+        Out.println();
 
-		try {
-			containerTruck.load(liquid_5);
-			Out.println("++ERROR++: InvalidCargoException expected: "+ containerTruck);
-		} catch (InvalidCargoException e) {
-			Out.println("Expected exception is: "+ e.toString());
-		} catch (TransportException e) {
-			Out.println("++ERROR++: Unexpected exception: "+ e.toString());
-		}
+        try {
+            containerTruck.load(liquid_5);
+            Out.println("++ERROR++: InvalidCargoException expected: " + containerTruck);
+        } catch (InvalidCargoException e) {
+            Out.println("Expected exception is: " + e.toString());
+        } catch (TransportException e) {
+            Out.println("++ERROR++: Unexpected exception: " + e.toString());
+        }
 
-		try {
-			containerTruck.load(solid_15);
-			Out.println("++ERROR++: OverloadedException expected: "+ containerTruck);
-		} catch (OverloadedException e) {
-			Out.println("Expected exception is: "+ e.toString());
-		} catch (TransportException e) {
-			Out.println("++ERROR++: Unexpected exception: "+ e.toString());
-		}
+        try {
+            containerTruck.load(solid_15);
+            Out.println("++ERROR++: OverloadedException expected: " + containerTruck);
+        } catch (OverloadedException e) {
+            Out.println("Expected exception is: " + e.toString());
+        } catch (TransportException e) {
+            Out.println("++ERROR++: Unexpected exception: " + e.toString());
+        }
 
+        try {
+            containerTruck.goTo(ny);
+            Out.println(containerTruck);
+        } catch (Exception e) {
+            Out.println(e);
+        }
     }
 }

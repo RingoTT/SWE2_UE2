@@ -20,6 +20,6 @@ public class Cargo {
         } else {
             str = "liquid";
         }
-        return "--- cargo: "+ this.weight+ " tons - Type:  " +str;
+        return "--- cargo: " + this.weight + " tons - Type:  " + str;
     }
 }

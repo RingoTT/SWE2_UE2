@@ -16,7 +16,7 @@ public abstract class Transporter {
         this.location = location;
     }
 
-    public double goTo(Location location) {
+    public double goTo(Location location) throws UnreachableLocationException {
         double x = Math.round(this.costPerKM * this.location.getDistance(location) * 100) / 100.0;
         this.location = location;
         return x;
@@ -25,7 +25,7 @@ public abstract class Transporter {
     public void load(Cargo cargo) throws OverloadedException, InvalidCargoException {//throws OverloadedException if cargo is heavier than maxLoad
         if (cargo.weight > this.maxLoad) {
             throw new OverloadedException("Cargo too heavy");
-        }else{
+        } else {
             this.cargo = cargo;
         }
     }
