@@ -7,7 +7,7 @@ public abstract class Truck extends Transporter{
 
     @Override
     public double goTo(Location location) throws UnreachableLocationException {
-        if (super.location.reachableOverland(location)) {
+        if (this.location.reachableOverland(location)) {
             double x = Math.round(super.costPerKM * super.location.getDistance(location) * 100) / 100.0;
             super.location = location;
             return x;

@@ -150,6 +150,7 @@ public class TransportTest {
         }
 
         try {
+            Out.println(containerTruck);
             containerTruck.goTo(ny);
             Out.println(containerTruck);
         } catch (Exception e) {
