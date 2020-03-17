@@ -23,15 +23,20 @@ public abstract class Transporter {
     }
 
     public void load(Cargo cargo) throws OverloadedException, InvalidCargoException {//throws OverloadedException if cargo is heavier than maxLoad
-        if (cargo.weight > this.maxLoad) {
-            throw new OverloadedException("Cargo too heavy");
-        } else {
-            this.cargo = cargo;
+        if (this.cargo == null){
+            if (cargo.weight > this.maxLoad) {
+                throw new OverloadedException("Cargo too heavy");
+            } else {
+                this.cargo = cargo;
+            }
         }
+        else throw new OverloadedException("Transporter is already loaded");
     }
 
-    public void unload() {
+    public Cargo unload() {
+        Cargo x = this.cargo;
         this.cargo = null;
+        return x;
     }
 
 
