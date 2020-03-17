@@ -10,9 +10,7 @@ public class TankTruck extends Transporter {
     public void load(Cargo cargo) throws InvalidCargoException, OverloadedException {
         if (cargo.type == CargoType.SOLID) {
             throw new InvalidCargoException("Tanktruck can't transport solid cargo");
-        } else {
-            super.load(cargo);
-        }
+        } else super.load(cargo);
     }
 }
 
