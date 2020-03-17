@@ -1,6 +1,6 @@
 package transport;
 
-public class Truck extends Transporter{
+public abstract class Truck extends Transporter{
     public Truck(String name, double costPerKM, int maxLoad, Location location) {
         super(name, costPerKM, maxLoad, location);
     }
