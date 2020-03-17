@@ -37,5 +37,4 @@ public enum Country {
     private static boolean america(Country e) {
         return e == Canada || e == USA;
     }
-
 }
