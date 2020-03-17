@@ -1,6 +1,6 @@
 package transport;
 
-public class TankTruck extends Transporter {
+public class TankTruck extends Truck {
 
     public TankTruck(String name, int costPerKM, int maxLoad, Location location) {
         super(name, costPerKM, maxLoad, location);
